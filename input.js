@@ -6,7 +6,6 @@ const setupInput = (conn) => {
   stdin.setRawMode(true);
   stdin.setEncoding('utf8');
   stdin.resume();
-  // console.log({conn});
   connection = conn;
 };
 
@@ -30,5 +29,6 @@ const handleUserInput = () => {
 
 module.exports = {
   setupInput,
-  handleUserInput
+  handleUserInput,
+  connection
 };
