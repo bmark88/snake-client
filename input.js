@@ -22,6 +22,8 @@ const handleUserInput = () => {
       setInterval(() => {connection.write('Move: down')}, 50); // move down command
     } else if (key === '\d') {
       setInterval(() => {connection.write('Move: right')}, 50); // move right command
+    } else if (key === '\q') {
+      connection.write("Say: ¿y so glitchy¿");
     }
   })
 };
