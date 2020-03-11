@@ -1,4 +1,5 @@
 const net = require('net');
+const stdin = process.stdin;
 
 /**
  * Establishes connection with the game server
@@ -10,6 +11,16 @@ const connect = function() {
   });
   // interpret incoming data as text
   conn.setEncoding('utf8'); 
+  
+  // notifies us when our connection is established
+  conn.on('connect', () => {
+    console.log('Successfully established connection');
+  })
+
+  // writing to server our username (3 characters or less)
+  conn.on('connect', () => {
+      conn.write('Name: BM  ')
+  })
 
   // event listener to read what the server is sending us
   conn.on('data', (data) => {
@@ -18,5 +29,5 @@ const connect = function() {
 
   return conn;
 }
-
+  
 module.exports = { connect };
